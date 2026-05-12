@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIYOMINE | AIで世界を一つに — AIrffic World</title>
+  <meta name="description" content="AI研修・開発・業務効率化・業界特化・IoT連携。KIYOMINEが贈る、信頼と実績のAIソリューション。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #020408;
+      --surface:  #080f1a;
+      --card:     #0d1825;
+      --border:   rgba(255,255,255,0.07);
+      --accent:   #00c8ff;
+      --accent2:  #7b5fff;
+      --accent3:  #00ffa3;
+      --text:     #e8edf5;
+      --muted:    #7a8ba0;
+      --glow:     rgba(0,200,255,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: rgba(2,4,8,0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #000 !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.85; color: #000 !important; }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,200,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,200,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .orb1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,200,255,0.12), transparent 70%);
+      top: -100px; left: -150px;
+    }
+
+    .orb2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(123,95,255,0.12), transparent 70%);
+      bottom: -80px; right: -100px;
+    }
+
+    .orb3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(0,255,163,0.08), transparent 70%);
+      top: 40%; right: 15%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,200,255,0.08);
+      border: 1px solid rgba(0,200,255,0.25);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    .hero-vision {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title .brand {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.5rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .hero-desc {
+      max-width: 620px;
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 30px rgba(0,200,255,0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(0,200,255,0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* ─── STATS ───────────────────────────────────────── */
+    .stats {
+      padding: 3rem 5%;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 160px;
+      text-align: center;
+      padding: 1.5rem 2rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-size: 2.4rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      letter-spacing: 0.05em;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ─── SECTION COMMON ──────────────────────────────── */
+    section { padding: 6rem 5%; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .section-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.9;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .section-header { margin-bottom: 3.5rem; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-desc { margin: 0 auto; }
+
+    /* ─── TRUST ───────────────────────────────────────── */
+    .trust { background: var(--surface); }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .trust-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trust-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .trust-card:hover { border-color: rgba(0,200,255,0.25); transform: translateY(-4px); }
+    .trust-card:hover::before { opacity: 1; }
+
+    .trust-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      background: rgba(0,200,255,0.08);
+    }
+
+    .trust-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .trust-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.2rem;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(0,200,255,0.04), transparent 60%);
+      pointer-events: none;
+    }
+
+    .service-card:hover {
+      border-color: rgba(0,200,255,0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,200,255,0.08);
+    }
+
+    .service-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      opacity: 0.6;
+    }
+
+    .service-icon-wrap {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .service-card .en-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      background: rgba(0,200,255,0.07);
+      border: 1px solid rgba(0,200,255,0.15);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .s1 .service-icon-wrap { background: rgba(0,200,255,0.1); }
+    .s2 .service-icon-wrap { background: rgba(123,95,255,0.1); }
+    .s3 .service-icon-wrap { background: rgba(0,255,163,0.1); }
+    .s4 .service-icon-wrap { background: rgba(255,165,0,0.1); }
+    .s5 .service-icon-wrap { background: rgba(255,80,120,0.1); }
+
+    .s2 .tag { color: var(--accent2); background: rgba(123,95,255,0.07); border-color: rgba(123,95,255,0.15); }
+    .s3 .tag { color: var(--accent3); background: rgba(0,255,163,0.07); border-color: rgba(0,255,163,0.15); }
+    .s4 .tag { color: #ffa500; background: rgba(255,165,0,0.07); border-color: rgba(255,165,0,0.15); }
+    .s5 .tag { color: #ff5078; background: rgba(255,80,120,0.07); border-color: rgba(255,80,120,0.15); }
+
+    /* ─── VISION ──────────────────────────────────────── */
+    .vision {
+      background: var(--surface);
+      text-align: center;
+    }
+
+    .vision-globe {
+      width: 180px; height: 180px;
+      margin: 0 auto 3rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .globe-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0,200,255,0.2);
+      animation: spin linear infinite;
+    }
+
+    .ring1 { width: 100%; height: 100%; animation-duration: 12s; }
+    .ring2 { width: 75%; height: 75%; animation-duration: 8s; animation-direction: reverse; border-color: rgba(123,95,255,0.2); }
+    .ring3 { width: 50%; height: 50%; animation-duration: 5s; border-color: rgba(0,255,163,0.2); }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .globe-core {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 50%;
+      z-index: 1;
+      box-shadow: 0 0 30px rgba(0,200,255,0.4);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vision-name {
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, var(--accent3) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .vision-tagline {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      letter-spacing: 0.05em;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .vision-pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .pillar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      font-size: 0.88rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .pillar-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
+    .pillar-title { font-weight: 700; margin-bottom: 0.4rem; }
+    .pillar-desc { color: var(--muted); font-size: 0.8rem; line-height: 1.6; }
+
+    /* ─── TESTIMONIALS ────────────────────────────────── */
+    .testimonials { background: var(--bg); }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .testi-stars {
+      color: #ffd700;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.15em;
+    }
+
+    .testi-text {
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .testi-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .testi-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .testi-role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ─── PROCESS ─────────────────────────────────────── */
+    .process { background: var(--surface); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+    }
+
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -0.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 1.2rem;
+    }
+
+    .process-step:last-child::after { display: none; }
+
+    .step-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #000;
+      font-weight: 900;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .step-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ─── CTA ─────────────────────────────────────────── */
+    .cta-section {
+      background: var(--bg);
+      text-align: center;
+      padding: 8rem 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,200,255,0.06), transparent);
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      position: relative;
+    }
+
+    .cta-section p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.9;
+      font-family: 'Noto Sans JP', sans-serif;
+      position: relative;
+    }
+
+    .cta-section .btn-primary { position: relative; font-size: 1rem; padding: 1rem 2.5rem; }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 3rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+      .process-step::after { display: none; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">KIYOMINE</div>
+  <ul class="nav-links">
+    <li><a href="#trust">信頼性</a></li>
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#vision">ビジョン</a></li>
+    <li><a href="#process">進め方</a></li>
+    <li><a href="#contact" class="nav-cta">無料相談</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    AIrffic World — 稼働中
+  </div>
+
+  <p class="hero-vision">AI Solutions for the Future</p>
+
+  <h1 class="hero-title">
+    <span class="brand">AIrffic</span><br>World
+  </h1>
+
+  <h2 class="hero-subtitle">AIで、世界を一つに。</h2>
+
+  <p class="hero-desc">
+    業種・規模を問わず、AIの力で組織の壁を越える。<br>
+    研修から開発、現場の効率化まで—<br>
+    KIYOMINEが、あなたのAI変革をワンストップで支援します。
+  </p>
+
+  <div class="hero-cta-group">
+    <a href="#contact" class="btn-primary">
+      &#x2709; 無料相談を予約する
+    </a>
+    <a href="#services" class="btn-secondary">
+      &#x25BE; サービスを見る
+    </a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item fade-in">
+    <div class="stat-num">150+</div>
+    <div class="stat-label">導入企業数</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-num">98%</div>
+    <div class="stat-label">顧客満足度</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-num">5</div>
+    <div class="stat-label">専門領域</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-num">3年+</div>
+    <div class="stat-label">AI特化実績</div>
+  </div>
+</div>
+
+<!-- TRUST -->
+<section class="trust" id="trust">
+  <div class="section-header center">
+    <span class="section-tag">Trust &amp; Credibility</span>
+    <h2 class="section-title">なぜ KIYOMINEが選ばれるのか</h2>
+    <p class="section-desc">
+      AIの受注においてもっとも重要なのは「信用」。私たちは実績・透明性・専門性の三軸で信頼を証明します。
+    </p>
+  </div>
+
+  <div class="trust-grid">
+    <div class="trust-card fade-in">
+      <div class="trust-icon">🏆</div>
+      <h3>確かな開発実績</h3>
+      <p>製造・医療・小売・物流など多業種でのAI導入を完遂。プロジェクト成功率95%以上を維持し続けています。</p>
+    </div>
+    <div class="trust-card fade-in">
+      <div class="trust-icon">🎓</div>
+      <h3>認定資格・専門知識</h3>
+      <p>AWS Machine Learning・Google Cloud AI認定を保有。最新のLLM・生成AIから組込みMLまで幅広く対応します。</p>
+    </div>
+    <div class="trust-card fade-in">
+      <div class="trust-icon">🔒</div>
+      <h3>セキュリティ・守秘義務</h3>
+      <p>NDA締結を標準とし、機密情報の取り扱いに万全を期します。データはお客様の同意なく外部提供しません。</p>
+    </div>
+    <div class="trust-card fade-in">
+      <div class="trust-icon">💬</div>
+      <h3>透明なコミュニケーション</h3>
+      <p>週次レポートと進捗ダッシュボードで状況をリアルタイム共有。「任せて放置」ではなく共に作り上げます。</p>
+    </div>
+    <div class="trust-card fade-in">
+      <div class="trust-icon">⚡</div>
+      <h3>スピードとアジリティ</h3>
+      <p>PoC（概念実証）を最短2週間で提供。素早い検証サイクルで、投資リスクを最小化しながら価値を最大化します。</p>
+    </div>
+    <div class="trust-card fade-in">
+      <div class="trust-icon">🌐</div>
+      <h3>長期パートナーシップ</h3>
+      <p>導入後の保守・改善・追加開発まで一貫してサポート。AIは一度作って終わりではなく、育てるものと考えます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <span class="section-tag">Our Services</span>
+    <h2 class="section-title">5つの専門サービス</h2>
+    <p class="section-desc">
+      各領域で深い専門性を持つチームが、あなたの課題に合わせた最適解を提供します。
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <!-- 1 -->
+    <div class="service-card s1 fade-in">
+      <div class="service-num">01</div>
+      <div class="service-icon-wrap">🧠</div>
+      <h3>AI研修・教育</h3>
+      <p class="en-title">AI Training &amp; Education</p>
+      <p>ChatGPT・Copilotの基礎から、プロンプトエンジニアリング・MLOpsまで。社員全員がAIを使いこなせる組織へ変革します。経営層向け戦略研修から現場向け実践研修まで、階層別にカスタマイズ。</p>
+      <div class="service-tags">
+        <span class="tag">LLM基礎</span>
+        <span class="tag">プロンプト設計</span>
+        <span class="tag">社内AI推進</span>
+        <span class="tag">カスタム研修</span>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="service-card s2 fade-in">
+      <div class="service-num">02</div>
+      <div class="service-icon-wrap">💻</div>
+      <h3>AI開発・受託案件</h3>
+      <p class="en-title">AI Development &amp; Projects</p>
+      <p>要件定義から設計・実装・テスト・リリースまで一気通貫。社内ツール自動化・カスタムChatbot・データ分析基盤など、あらゆるAI開発案件に対応します。アジャイルで素早くPoC→本番へ。</p>
+      <div class="service-tags">
+        <span class="tag">RAG / Chatbot</span>
+        <span class="tag">API開発</span>
+        <span class="tag">ML Pipeline</span>
+        <span class="tag">PoC→本番</span>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="service-card s3 fade-in">
+      <div class="service-num">03</div>
+      <div class="service-icon-wrap">⚙️</div>
+      <h3>業務効率化・自動化</h3>
+      <p class="en-title">Process Automation</p>
+      <p>書類処理・データ入力・レポート作成・問合せ対応など、繰り返し業務をAIとRPAで自動化。コスト削減・ヒューマンエラー排除・従業員体験の向上を同時に実現します。</p>
+      <div class="service-tags">
+        <span class="tag">RPA × AI</span>
+        <span class="tag">OCR自動化</span>
+        <span class="tag">社内DX</span>
+        <span class="tag">工数削減</span>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="service-card s4 fade-in">
+      <div class="service-num">04</div>
+      <div class="service-icon-wrap">🏭</div>
+      <h3>業界特化型AIサービス</h3>
+      <p class="en-title">Industry-Specific AI</p>
+      <p>汎用AIでは届かない、業界固有の専門知識とデータを組み合わせた特化型ソリューション。医療・製造・金融・建設・農業など、各業界のドメインエキスパートと共に設計します。</p>
+      <div class="service-tags">
+        <span class="tag">医療AI</span>
+        <span class="tag">製造品質検査</span>
+        <span class="tag">農業予測</span>
+        <span class="tag">金融分析</span>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="service-card s5 fade-in">
+      <div class="service-num">05</div>
+      <div class="service-icon-wrap">🔗</div>
+      <h3>IoT × AI 効率化</h3>
+      <p class="en-title">IoT &amp; AI Integration</p>
+      <p>センサー・カメラ・PLC等のデバイスとAIをリアルタイム連携。設備の異常検知・予知保全・生産ラインの自動最適化など、物理世界のデータをインテリジェントに活用します。</p>
+      <div class="service-tags">
+        <span class="tag">エッジAI</span>
+        <span class="tag">予知保全</span>
+        <span class="tag">リアルタイム分析</span>
+        <span class="tag">スマートファクトリー</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="vision" id="vision">
+  <div class="section-header center">
+    <span class="section-tag">Our Vision</span>
+  </div>
+
+  <div class="vision-globe">
+    <div class="globe-ring ring1"></div>
+    <div class="globe-ring ring2"></div>
+    <div class="globe-ring ring3"></div>
+    <div class="globe-core">🌏</div>
+  </div>
+
+  <div class="vision-name">AIrffic World</div>
+  <p class="vision-tagline">AIで、世界を一つに。すべての人・企業・社会がつながる未来へ。</p>
+
+  <p class="section-desc" style="margin: 0 auto 3rem; text-align:center;">
+    私たちのビジョンは「AIrffic World」—Artificial Intelligence が Traffic のように、人・情報・ビジネスを自由につなぐ世界です。言語の壁・地域の壁・組織の壁をAIが溶かし、誰もが平等にチャンスを手にできる社会をつくります。
+  </p>
+
+  <div class="vision-pillars">
+    <div class="pillar fade-in">
+      <div class="pillar-icon">🤝</div>
+      <div class="pillar-title">繋げる</div>
+      <div class="pillar-desc">企業・人・社会をAIで有機的につなぐ</div>
+    </div>
+    <div class="pillar fade-in">
+      <div class="pillar-icon">🚀</div>
+      <div class="pillar-title">加速する</div>
+      <div class="pillar-desc">AIで人間の可能性を何倍にも引き上げる</div>
+    </div>
+    <div class="pillar fade-in">
+      <div class="pillar-icon">⚖️</div>
+      <div class="pillar-title">平等にする</div>
+      <div class="pillar-desc">大企業も中小企業も同じAIの恩恵を</div>
+    </div>
+    <div class="pillar fade-in">
+      <div class="pillar-icon">🌱</div>
+      <div class="pillar-title">持続させる</div>
+      <div class="pillar-desc">人と環境に優しいAI活用を追求する</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header center">
+    <span class="section-tag">Client Voices</span>
+    <h2 class="section-title">お客様の声</h2>
+    <p class="section-desc">実際に導入いただいたお客様からのフィードバックです。</p>
+  </div>
+
+  <div class="testi-grid">
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">「AI研修を導入してから、社員の業務スピードが平均40%向上しました。難しい概念もわかりやすく教えていただき、現場から大好評です。」</p>
+      <div class="testi-author">
+        <div class="testi-avatar">T</div>
+        <div>
+          <div class="testi-name">田中 達也 様</div>
+          <div class="testi-role">製造業 / DX推進部長</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">「IoT×AIで工場の不良品率を従来比60%削減。KIYOMINEさんはドメイン知識を理解した上で提案してくれるので、的外れな提案が一切ありません。」</p>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div>
+          <div class="testi-name">佐藤 美咲 様</div>
+          <div class="testi-role">食品メーカー / 製造部長</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">「受付・問合せ対応をAI化し、スタッフの残業が月30時間以上削減。コスト以上の価値を得られました。誠実で丁寧な対応も非常に印象的です。」</p>
+      <div class="testi-author">
+        <div class="testi-avatar">K</div>
+        <div>
+          <div class="testi-name">木村 洋介 様</div>
+          <div class="testi-role">医療クリニック / 院長</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-header center">
+    <span class="section-tag">How It Works</span>
+    <h2 class="section-title">プロジェクトの進め方</h2>
+    <p class="section-desc">初回ヒアリングから本番稼働まで、一貫してサポートします。</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="process-step fade-in">
+      <div class="step-num">1</div>
+      <div class="step-title">無料相談</div>
+      <div class="step-desc">課題・目標・予算を<br>ヒアリング（30分）</div>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-num">2</div>
+      <div class="step-title">提案・見積</div>
+      <div class="step-desc">最適な解決策と<br>費用感を提示</div>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-num">3</div>
+      <div class="step-title">PoC検証</div>
+      <div class="step-desc">最短2週間で<br>小さく試して確認</div>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-num">4</div>
+      <div class="step-title">本番開発</div>
+      <div class="step-desc">アジャイルで<br>段階的に構築</div>
+    </div>
+    <div class="process-step fade-in">
+      <div class="step-num">5</div>
+      <div class="step-title">運用・改善</div>
+      <div class="step-desc">リリース後も<br>継続サポート</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div>
+  <span class="section-tag">Get Started</span>
+  <h2>AIの力を、あなたのビジネスへ。</h2>
+  <p>まずは30分の無料相談から。費用・納期・技術的な疑問、何でもお気軽にご相談ください。</p>
+  <a href="mailto:contact@kiyomine.com" class="btn-primary">
+    &#x2709;&nbsp; 無料相談を予約する
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">KIYOMINE</div>
+  <p class="footer-copy">&copy; 2026 KIYOMINE. All rights reserved. — AIrffic World Vision</p>
+  <ul class="footer-links">
+    <li><a href="#trust">信頼性</a></li>
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#vision">ビジョン</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Mouse-follow glow on service cards
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
+</script>
+</body>
+</html>
