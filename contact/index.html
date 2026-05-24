@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お問い合わせ | KIYOMINE</title>
+  <meta name="description" content="KIYOMINEへのお問い合わせ・無料相談のご予約。AIオペレーション導入のご相談はこちらから。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .contact-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 5%;
+    }
+
+    .contact-note {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.8;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    label .required {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #ff6b6b;
+      background: rgba(255,107,107,0.1);
+      border-radius: 3px;
+      padding: 0.1rem 0.4rem;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    label .optional {
+      display: inline-block;
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-size: 0.92rem;
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      transition: border-color 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,200,255,0.1);
+    }
+
+    textarea {
+      height: 160px;
+      resize: vertical;
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237a8ba0' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .form-submit .btn-primary {
+      font-size: 1rem;
+      padding: 0.95rem 3rem;
+    }
+
+    .form-privacy {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 1rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .form-privacy a { color: var(--accent); }
+
+    .contact-alt {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .contact-alt p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">KIYOMINE</a>
+  <ul class="nav-links">
+    <li><a href="/services/">サービス</a></li>
+    <li><a href="/#pricing">料金目安</a></li>
+    <li><a href="/about/">事業者情報</a></li>
+    <li><a href="/contact/" style="color: var(--text);">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="section-tag">Contact</span>
+  <h1 class="section-title">無料相談・お問い合わせ</h1>
+  <p class="section-desc">まずは30分、現場の課題をお聞かせください。AIで解決できるか正直にお伝えします。</p>
+</div>
+
+<div class="contact-wrap">
+
+  <div class="contact-note">
+    <strong>無料相談について</strong><br>
+    30分のオンライン相談（Zoom等）を無料で承っています。現場課題のヒアリング・AIの適用可能性の確認・費用感のご説明を行います。売り込みはしません。
+  </div>
+
+  <!-- フォーム送信先は Formspree 等のサービスを設定してください -->
+  <!-- action="https://formspree.io/f/YOUR_FORM_ID" に置き換え -->
+  <form
+    id="contact-form"
+    action="mailto:contact@kiyomine.com"
+    method="POST"
+    enctype="text/plain"
+    novalidate
+  >
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">
+          お名前 <span class="required">必須</span>
+        </label>
+        <input type="text" id="name" name="name" placeholder="山田 太郎" required autocomplete="name" />
+      </div>
+      <div class="form-group">
+        <label for="company">
+          会社名・屋号 <span class="required">必須</span>
+        </label>
+        <input type="text" id="company" name="company" placeholder="株式会社〇〇 / 個人" required autocomplete="organization" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">
+        メールアドレス <span class="required">必須</span>
+      </label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+    </div>
+
+    <div class="form-group">
+      <label for="service">
+        ご関心のあるサービス <span class="required">必須</span>
+      </label>
+      <select id="service" name="service" required>
+        <option value="" disabled selected>選択してください</option>
+        <option value="aviation-logistics">航空・物流オペレーションAI</option>
+        <option value="inspection-vision">点検・検査の画像認識AI</option>
+        <option value="iot-insights">IoT連携・インサイト自動化</option>
+        <option value="sme-operations">中小企業の業務効率化</option>
+        <option value="training">AI研修</option>
+        <option value="other">その他・まだ決まっていない</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">
+        ご相談内容 <span class="required">必須</span>
+      </label>
+      <textarea id="message" name="message" placeholder="例：物流倉庫の仕分け作業を自動化したい。現在は手作業で1日8時間かかっており、人手不足が課題です。" required></textarea>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tel">
+          電話番号 <span class="optional">任意</span>
+        </label>
+        <input type="tel" id="tel" name="tel" placeholder="090-0000-0000" autocomplete="tel" />
+      </div>
+      <div class="form-group">
+        <label for="preferred-date">
+          ご希望日時 <span class="optional">任意</span>
+        </label>
+        <input type="text" id="preferred-date" name="preferred-date" placeholder="例：平日午後 / 5月下旬" />
+      </div>
+    </div>
+
+    <div class="form-submit">
+      <button type="submit" class="btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        送信する
+      </button>
+      <p class="form-privacy">
+        送信することで <a href="/legal/privacy/">プライバシーポリシー</a> に同意したものとみなします。
+      </p>
+    </div>
+  </form>
+
+  <div class="contact-alt">
+    <p>メールで直接ご連絡いただくことも可能です。</p>
+    <a href="mailto:contact@kiyomine.com" class="btn-outline">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      contact@kiyomine.com
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="/" class="footer-logo">KIYOMINE</a>
+      <p class="footer-tagline">動く現場のAIオペレーション</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <div class="footer-nav-group">
+        <h4>法的情報</h4>
+        <ul>
+          <li><a href="/legal/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/legal/terms/">利用規約</a></li>
+          <li><a href="/legal/tokushoho/">特定商取引法</a></li>
+          <li><a href="/about/">事業者情報</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 KIYOMINE. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

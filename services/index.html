@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>サービス一覧 | KIYOMINE</title>
+  <meta name="description" content="KIYOMINEの4つのAIサービス。航空・物流オペレーションAI、点検・画像認識AI、IoT連携・インサイト自動化、中小企業の業務効率化。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .services-list {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 5%;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .service-row:last-child { border-bottom: none; }
+
+    .service-meta { position: sticky; top: 90px; }
+    .service-num { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); opacity: 0.6; margin-bottom: 0.5rem; }
+    .service-icon-lg { width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
+    .service-icon-lg svg { width: 32px; height: 32px; }
+    .s1 .service-icon-lg { background: rgba(0,200,255,0.1); }
+    .s2 .service-icon-lg { background: rgba(123,95,255,0.1); }
+    .s3 .service-icon-lg { background: rgba(0,255,163,0.1); }
+    .s4 .service-icon-lg { background: rgba(255,165,0,0.1); }
+    .s1 .service-icon-lg svg { stroke: var(--accent); }
+    .s2 .service-icon-lg svg { stroke: var(--accent2); }
+    .s3 .service-icon-lg svg { stroke: var(--accent3); }
+    .s4 .service-icon-lg svg { stroke: #ffa500; }
+
+    .service-meta h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.4rem; font-family: 'Noto Sans JP', sans-serif; line-height: 1.4; }
+    .service-meta .en { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.2rem; }
+
+    .service-body p { font-size: 0.95rem; color: var(--muted); line-height: 2; margin-bottom: 1.2rem; font-family: 'Noto Sans JP', sans-serif; }
+    .service-body h3 { font-size: 0.88rem; font-weight: 700; color: var(--text); margin: 1.5rem 0 0.75rem; font-family: 'Noto Sans JP', sans-serif; }
+    .service-body ul { list-style: none; margin-bottom: 1.5rem; }
+    .service-body ul li { font-size: 0.88rem; color: var(--muted); padding: 0.4rem 0 0.4rem 1.2rem; font-family: 'Noto Sans JP', sans-serif; position: relative; line-height: 1.7; }
+    .service-body ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); opacity: 0.5; }
+
+    .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .s1 .tag { color: var(--accent); background: rgba(0,200,255,0.07); border-color: rgba(0,200,255,0.15); }
+    .s2 .tag { color: var(--accent2); background: rgba(123,95,255,0.07); border-color: rgba(123,95,255,0.15); }
+    .s3 .tag { color: var(--accent3); background: rgba(0,255,163,0.07); border-color: rgba(0,255,163,0.15); }
+    .s4 .tag { color: #ffa500; background: rgba(255,165,0,0.07); border-color: rgba(255,165,0,0.15); }
+
+    @media (max-width: 768px) {
+      .service-row { grid-template-columns: 1fr; gap: 1.5rem; }
+      .service-meta { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">KIYOMINE</a>
+  <ul class="nav-links">
+    <li><a href="/services/" style="color: var(--text);">サービス</a></li>
+    <li><a href="/#pricing">料金目安</a></li>
+    <li><a href="/about/">事業者情報</a></li>
+    <li><a href="/contact/" class="nav-cta">無料相談</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="section-tag">Services</span>
+  <h1 class="section-title">4つの専門領域</h1>
+  <p class="section-desc">「動く現場」に特化した4本柱。汎用AIでは届かない、業務現場のリアルな課題を解決します。</p>
+</div>
+
+<div class="services-list">
+
+  <div class="service-row s1 fade-in">
+    <div class="service-meta">
+      <div class="service-num">01</div>
+      <div class="service-icon-lg">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+      </div>
+      <h2>航空・物流<br>オペレーションAI</h2>
+      <p class="en">Aviation &amp; Logistics AI</p>
+      <div class="service-tags">
+        <span class="tag">ドローン管制</span>
+        <span class="tag">ルート最適化</span>
+        <span class="tag">運行解析</span>
+        <span class="tag">需要予測</span>
+      </div>
+      <a href="/services/aviation-logistics/" class="btn-outline" style="font-size: 0.82rem; padding: 0.6rem 1.2rem;">詳しく見る →</a>
+    </div>
+    <div class="service-body">
+      <p>航空・物流の現場では、日々大量の運行データ・配送データが生まれています。しかし多くの現場でそのデータは活用されず、ベテランの「勘」に頼った意思決定が続いています。</p>
+      <p>KIYOMINEは、この「動く現場のデータ」をAIで解析し、ルート最適化・需要予測・異常検知を自動化します。</p>
+      <h3>主な支援内容</h3>
+      <ul>
+        <li>ドローン運航管理システムの開発（飛行ルート最適化・衝突回避）</li>
+        <li>配送ルート最適化AIの導入（時間・コスト・CO₂削減）</li>
+        <li>運行データ解析・需要予測ダッシュボードの構築</li>
+        <li>物流オペレーションの異常検知・アラート自動化</li>
+      </ul>
+      <h3>こんな課題を持つ事業者に</h3>
+      <ul>
+        <li>配送コストが高く、ドライバーの経験に依存している</li>
+        <li>ドローン事業を始めたいが、運航管理の仕組みがない</li>
+        <li>物流データが蓄積されているが分析に活用できていない</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="service-row s2 fade-in">
+    <div class="service-meta">
+      <div class="service-num">02</div>
+      <div class="service-icon-lg">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+      </div>
+      <h2>点検・検査の<br>画像認識AI</h2>
+      <p class="en">Inspection &amp; Vision AI</p>
+      <div class="service-tags">
+        <span class="tag">異常検知</span>
+        <span class="tag">外観検査</span>
+        <span class="tag">インフラ点検</span>
+        <span class="tag">品質管理</span>
+      </div>
+      <a href="/services/inspection-vision/" class="btn-outline" style="font-size: 0.82rem; padding: 0.6rem 1.2rem; border-color: rgba(123,95,255,0.3); color: var(--accent2);">詳しく見る →</a>
+    </div>
+    <div class="service-body">
+      <p>「見て判断する」業務——橋梁・設備の点検、製品の外観検査——これらは熟練者の目に頼ることが多く、人手不足や品質のばらつきが課題になっています。</p>
+      <p>画像認識AIを使えば、カメラ映像やドローン空撮から自動的に異常を検出し、見落としゼロ・24時間稼働を実現します。</p>
+      <h3>主な支援内容</h3>
+      <ul>
+        <li>インフラ点検（橋・道路・鉄塔）の亀裂・腐食検出モデル開発</li>
+        <li>製造ラインの外観検査自動化（キズ・異物・色ムラ検知）</li>
+        <li>ドローン空撮映像のAI解析システム構築</li>
+        <li>点検結果のレポート自動生成・記録管理</li>
+      </ul>
+      <h3>こんな課題を持つ事業者に</h3>
+      <ul>
+        <li>熟練検査員が減少し、品質のばらつきが増えている</li>
+        <li>点検作業の記録・報告に多大な工数がかかっている</li>
+        <li>不良品の流出リスクを減らしたい</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="service-row s3 fade-in">
+    <div class="service-meta">
+      <div class="service-num">03</div>
+      <div class="service-icon-lg">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+      </div>
+      <h2>IoT連携・<br>インサイト自動化</h2>
+      <p class="en">IoT &amp; Insights</p>
+      <div class="service-tags">
+        <span class="tag">センサー連携</span>
+        <span class="tag">予知保全</span>
+        <span class="tag">自動アラート</span>
+        <span class="tag">ダッシュボード</span>
+      </div>
+      <a href="/services/iot-insights/" class="btn-outline" style="font-size: 0.82rem; padding: 0.6rem 1.2rem; border-color: rgba(0,255,163,0.3); color: var(--accent3);">詳しく見る →</a>
+    </div>
+    <div class="service-body">
+      <p>センサーを設置してデータを収集したものの、「CSVが溜まるだけで何も活用できていない」という声をよく耳にします。データを集めることは手段であって目的ではありません。</p>
+      <p>KIYOMINEは、センサーデータを「次のアクション提案まで」自動化します。単なるモニタリングを超えた、判断するIoTを実現します。</p>
+      <h3>主な支援内容</h3>
+      <ul>
+        <li>各種センサー（温度・振動・電流・画像）とクラウドの連携構築</li>
+        <li>設備の予知保全モデル開発（故障の予兆を事前検知）</li>
+        <li>リアルタイムダッシュボード構築（Grafana/Power BI等）</li>
+        <li>異常値の自動アラートと対処提案の仕組み化</li>
+      </ul>
+      <h3>こんな課題を持つ事業者に</h3>
+      <ul>
+        <li>IoT機器を導入したがデータを活用できていない</li>
+        <li>設備故障の事前検知で計画外停止をなくしたい</li>
+        <li>現場の状態をリアルタイムで把握したい</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="service-row s4 fade-in">
+    <div class="service-meta">
+      <div class="service-num">04</div>
+      <div class="service-icon-lg">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h2>中小企業の<br>業務効率化AI</h2>
+      <p class="en">SME Operations AI</p>
+      <div class="service-tags">
+        <span class="tag">RPA × AI</span>
+        <span class="tag">生成AI活用</span>
+        <span class="tag">社内DX</span>
+        <span class="tag">業務自動化</span>
+      </div>
+      <a href="/services/sme-operations/" class="btn-outline" style="font-size: 0.82rem; padding: 0.6rem 1.2rem; border-color: rgba(255,165,0,0.3); color: #ffa500;">詳しく見る →</a>
+    </div>
+    <div class="service-body">
+      <p>上記3領域の知見を横断的に活用し、業界を問わず中小・中堅企業の業務効率化を支援します。「大企業向けのAIは費用が高すぎる」「自社に合うAIが見つからない」そんな悩みに応えます。</p>
+      <h3>主な支援内容</h3>
+      <ul>
+        <li>書類処理・データ入力のRPA+AI自動化</li>
+        <li>社内問い合わせ対応・FAQ回答のAIチャットボット</li>
+        <li>レポート・議事録の生成AI活用（コスト削減）</li>
+        <li>社内データ活用基盤の構築・AI研修</li>
+      </ul>
+      <h3>こんな課題を持つ事業者に</h3>
+      <ul>
+        <li>繰り返し業務に多くの工数がとられている</li>
+        <li>AIを導入したいが何から始めればいいかわからない</li>
+        <li>DX推進部門がなく、専門家のサポートが必要</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<section style="background: var(--surface); text-align: center; padding: 5rem 5%;">
+  <span class="section-tag">Get Started</span>
+  <h2 class="section-title" style="margin-top: 0.5rem;">まず、30分話しましょう。</h2>
+  <p class="section-desc" style="margin: 0 auto 2rem;">AIで解決できるか、費用に見合うかを正直にお伝えします。</p>
+  <a href="/contact/" class="btn-primary">無料相談を予約する</a>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a href="/" class="footer-logo">KIYOMINE</a>
+      <p class="footer-tagline">動く現場のAIオペレーション</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <div class="footer-nav-group">
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="/services/aviation-logistics/">航空・物流AI</a></li>
+          <li><a href="/services/inspection-vision/">点検・画像認識</a></li>
+          <li><a href="/services/iot-insights/">IoT・インサイト</a></li>
+          <li><a href="/services/sme-operations/">中小企業効率化</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>KIYOMINE</h4>
+        <ul>
+          <li><a href="/about/">事業者情報</a></li>
+          <li><a href="/contact/">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>法的情報</h4>
+        <ul>
+          <li><a href="/legal/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/legal/terms/">利用規約</a></li>
+          <li><a href="/legal/tokushoho/">特定商取引法</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 KIYOMINE. All rights reserved.</p>
+    <p class="footer-vision">AIrffic World — AI で、動く現場をひとつに。</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
