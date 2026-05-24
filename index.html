@@ -3,91 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KIYOMINE | AIで世界を一つに — AIrffic World</title>
-  <meta name="description" content="AI研修・開発・業務効率化・業界特化・IoT連携。KIYOMINEが贈る、信頼と実績のAIソリューション。" />
+  <title>KIYOMINE | 動く現場のAIオペレーション</title>
+  <meta name="description" content="航空・物流オペレーション、点検・画像認識、IoT連携、中小企業の業務効率化に特化したAIソリューション。動く現場を、判断するAIで自動化します。" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="KIYOMINE | 動く現場のAIオペレーション" />
+  <meta property="og:description" content="点検・物流・航空オペレーションの自動化。画像認識×IoT×予測モデルで、人が見て判断する業務を置き換える。" />
+  <meta property="og:image" content="https://www.kiyomine.com/og-image.png" />
+  <meta property="og:url" content="https://www.kiyomine.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KIYOMINE | 動く現場のAIオペレーション" />
+  <meta name="twitter:description" content="点検・物流・航空オペレーションの自動化。画像認識×IoT×予測モデルで、人が見て判断する業務を置き換える。" />
+  <meta name="twitter:image" content="https://www.kiyomine.com/og-image.png" />
+
+  <!-- JSON-LD 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "KIYOMINE",
+    "url": "https://www.kiyomine.com/",
+    "description": "航空・物流オペレーション、点検・画像認識、IoT連携、中小企業の業務効率化に特化したAI開発・コンサルティング",
+    "founder": {
+      "@type": "Person",
+      "name": "Kiyomine Tsuyoshi"
+    },
+    "priceRange": "¥¥",
+    "areaServed": "JP",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "contact@kiyomine.com",
+      "availableLanguage": ["Japanese", "English"]
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #020408;
-      --surface:  #080f1a;
-      --card:     #0d1825;
-      --border:   rgba(255,255,255,0.07);
-      --accent:   #00c8ff;
-      --accent2:  #7b5fff;
-      --accent3:  #00ffa3;
-      --text:     #e8edf5;
-      --muted:    #7a8ba0;
-      --glow:     rgba(0,200,255,0.18);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', 'Noto Sans JP', sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      height: 64px;
-      background: rgba(2,4,8,0.82);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #000 !important;
-      padding: 0.45rem 1.2rem;
-      border-radius: 6px;
-      font-weight: 700 !important;
-      transition: opacity 0.2s !important;
-    }
-
-    .nav-cta:hover { opacity: 0.85; color: #000 !important; }
-
-    /* ─── HERO ────────────────────────────────────────── */
+    /* ─── HERO ──────────────────────────────────────── */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -117,23 +76,9 @@
       pointer-events: none;
     }
 
-    .orb1 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,200,255,0.12), transparent 70%);
-      top: -100px; left: -150px;
-    }
-
-    .orb2 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(123,95,255,0.12), transparent 70%);
-      bottom: -80px; right: -100px;
-    }
-
-    .orb3 {
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(0,255,163,0.08), transparent 70%);
-      top: 40%; right: 15%;
-    }
+    .orb1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,200,255,0.12), transparent 70%); top: -100px; left: -150px; }
+    .orb2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(123,95,255,0.12), transparent 70%); bottom: -80px; right: -100px; }
+    .orb3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(0,255,163,0.08), transparent 70%); top: 40%; right: 15%; }
 
     .hero-badge {
       display: inline-flex;
@@ -149,6 +94,7 @@
       color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 2rem;
+      position: relative;
     }
 
     .badge-dot {
@@ -158,26 +104,13 @@
       animation: pulse 2s infinite;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.4); }
-    }
-
-    .hero-vision {
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
     .hero-title {
-      font-size: clamp(3rem, 8vw, 7rem);
+      font-size: clamp(3rem, 8vw, 6.5rem);
       font-weight: 900;
-      line-height: 1.0;
+      line-height: 1.05;
       letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
     }
 
     .hero-title .brand {
@@ -187,14 +120,6 @@
       background-clip: text;
     }
 
-    .hero-subtitle {
-      font-size: clamp(1.5rem, 4vw, 2.8rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
     .hero-desc {
       max-width: 620px;
       font-size: 1.05rem;
@@ -202,6 +127,7 @@
       line-height: 1.9;
       margin-bottom: 2.5rem;
       font-family: 'Noto Sans JP', sans-serif;
+      position: relative;
     }
 
     .hero-cta-group {
@@ -209,51 +135,11 @@
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
+      position: relative;
     }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #000;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 30px rgba(0,200,255,0.25);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 50px rgba(0,200,255,0.4);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: transparent;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.04);
-    }
-
-    /* ─── STATS ───────────────────────────────────────── */
-    .stats {
+    /* ─── VALUE PROPS ────────────────────────────────── */
+    .value-props {
       padding: 3rem 5%;
       display: flex;
       justify-content: center;
@@ -264,68 +150,37 @@
       flex-wrap: wrap;
     }
 
-    .stat-item {
+    .value-item {
       flex: 1;
-      min-width: 160px;
+      min-width: 180px;
       text-align: center;
       padding: 1.5rem 2rem;
       border-right: 1px solid var(--border);
     }
 
-    .stat-item:last-child { border-right: none; }
+    .value-item:last-child { border-right: none; }
 
-    .stat-num {
-      font-size: 2.4rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.3rem;
-      letter-spacing: 0.05em;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    /* ─── SECTION COMMON ──────────────────────────────── */
-    section { padding: 6rem 5%; }
-
-    .section-tag {
-      display: inline-block;
-      font-size: 0.72rem;
+    .value-label {
+      font-size: 0.88rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+      color: var(--text);
+      margin-bottom: 0.4rem;
       font-family: 'Noto Sans JP', sans-serif;
     }
 
-    .section-desc {
-      font-size: 1rem;
+    .value-desc {
+      font-size: 0.78rem;
       color: var(--muted);
-      max-width: 560px;
-      line-height: 1.9;
+      line-height: 1.7;
       font-family: 'Noto Sans JP', sans-serif;
     }
 
-    .section-header { margin-bottom: 3.5rem; }
-    .section-header.center { text-align: center; }
-    .section-header.center .section-desc { margin: 0 auto; }
+    .value-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
 
-    /* ─── TRUST ───────────────────────────────────────── */
+    /* ─── TRUST CARDS ────────────────────────────────── */
     .trust { background: var(--surface); }
 
     .trust-grid {
@@ -334,55 +189,18 @@
       gap: 1.5rem;
     }
 
-    .trust-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      transition: border-color 0.3s, transform 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .trust-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
+    .trust-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; }
+    .trust-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
     .trust-card:hover { border-color: rgba(0,200,255,0.25); transform: translateY(-4px); }
     .trust-card:hover::before { opacity: 1; }
 
-    .trust-icon {
-      width: 48px; height: 48px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
-      background: rgba(0,200,255,0.08);
-    }
+    .trust-icon { width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; background: rgba(0,200,255,0.08); }
+    .trust-icon svg { width: 24px; height: 24px; }
 
-    .trust-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
+    .trust-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; font-family: 'Noto Sans JP', sans-serif; }
+    .trust-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; font-family: 'Noto Sans JP', sans-serif; }
 
-    .trust-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.8;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    /* ─── SERVICES ────────────────────────────────────── */
+    /* ─── SERVICES ───────────────────────────────────── */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -397,6 +215,9 @@
       transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
       position: relative;
       overflow: hidden;
+      text-decoration: none;
+      display: block;
+      color: inherit;
     }
 
     .service-card::after {
@@ -413,119 +234,81 @@
       box-shadow: 0 20px 60px rgba(0,200,255,0.08);
     }
 
-    .service-num {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      opacity: 0.6;
-    }
+    .service-num { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1rem; opacity: 0.6; }
 
-    .service-icon-wrap {
-      width: 56px; height: 56px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.7rem;
-      margin-bottom: 1.4rem;
-    }
+    .service-icon-wrap { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.4rem; }
+    .service-icon-wrap svg { width: 28px; height: 28px; }
 
-    .service-card h3 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
+    .service-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; font-family: 'Noto Sans JP', sans-serif; }
+    .service-card .en-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; font-family: 'Noto Sans JP', sans-serif; }
 
-    .service-card .en-title {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-
-    .service-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.9;
-      margin-bottom: 1.5rem;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    .service-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      background: rgba(0,200,255,0.07);
-      border: 1px solid rgba(0,200,255,0.15);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      letter-spacing: 0.04em;
-    }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
     .s1 .service-icon-wrap { background: rgba(0,200,255,0.1); }
     .s2 .service-icon-wrap { background: rgba(123,95,255,0.1); }
     .s3 .service-icon-wrap { background: rgba(0,255,163,0.1); }
     .s4 .service-icon-wrap { background: rgba(255,165,0,0.1); }
-    .s5 .service-icon-wrap { background: rgba(255,80,120,0.1); }
+
+    .s1 .service-icon-wrap svg { stroke: var(--accent); }
+    .s2 .service-icon-wrap svg { stroke: var(--accent2); }
+    .s3 .service-icon-wrap svg { stroke: var(--accent3); }
+    .s4 .service-icon-wrap svg { stroke: #ffa500; }
 
     .s2 .tag { color: var(--accent2); background: rgba(123,95,255,0.07); border-color: rgba(123,95,255,0.15); }
     .s3 .tag { color: var(--accent3); background: rgba(0,255,163,0.07); border-color: rgba(0,255,163,0.15); }
     .s4 .tag { color: #ffa500; background: rgba(255,165,0,0.07); border-color: rgba(255,165,0,0.15); }
-    .s5 .tag { color: #ff5078; background: rgba(255,80,120,0.07); border-color: rgba(255,80,120,0.15); }
 
-    /* ─── VISION ──────────────────────────────────────── */
-    .vision {
-      background: var(--surface);
-      text-align: center;
+    .service-link { font-size: 0.82rem; color: var(--accent); font-weight: 600; display: flex; align-items: center; gap: 0.3rem; margin-top: 0.5rem; }
+
+    /* ─── APPROACH ────────────────────────────────────── */
+    .approach { background: var(--bg); }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
 
-    .vision-globe {
-      width: 180px; height: 180px;
-      margin: 0 auto 3rem;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .approach-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
     }
 
-    .globe-ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(0,200,255,0.2);
-      animation: spin linear infinite;
+    .approach-step {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      opacity: 0.7;
+      text-transform: uppercase;
     }
 
+    .approach-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.75rem; font-family: 'Noto Sans JP', sans-serif; }
+    .approach-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.85; font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ─── VISION ─────────────────────────────────────── */
+    .vision { background: var(--surface); text-align: center; }
+
+    .vision-globe { width: 160px; height: 160px; margin: 0 auto 3rem; position: relative; display: flex; align-items: center; justify-content: center; }
+    .globe-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(0,200,255,0.2); animation: spin linear infinite; }
     .ring1 { width: 100%; height: 100%; animation-duration: 12s; }
     .ring2 { width: 75%; height: 75%; animation-duration: 8s; animation-direction: reverse; border-color: rgba(123,95,255,0.2); }
     .ring3 { width: 50%; height: 50%; animation-duration: 5s; border-color: rgba(0,255,163,0.2); }
 
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
     .globe-core {
-      width: 50px; height: 50px;
+      width: 48px; height: 48px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       border-radius: 50%;
       z-index: 1;
       box-shadow: 0 0 30px rgba(0,200,255,0.4);
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
+
+    .globe-core svg { width: 22px; height: 22px; stroke: #000; fill: none; stroke-width: 2; }
 
     .vision-name {
       font-size: clamp(2.5rem, 7vw, 5.5rem);
@@ -538,248 +321,82 @@
       margin-bottom: 1rem;
     }
 
-    .vision-tagline {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 3rem;
-      letter-spacing: 0.05em;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
+    .vision-tagline { font-size: 1.05rem; color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.04em; font-family: 'Noto Sans JP', sans-serif; }
 
-    .vision-pillars {
+    /* ─── PRICING ─────────────────────────────────────── */
+    .pricing { background: var(--bg); }
+
+    .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .pillar {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem 1rem;
-      font-size: 0.88rem;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    .pillar-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
-    .pillar-title { font-weight: 700; margin-bottom: 0.4rem; }
-    .pillar-desc { color: var(--muted); font-size: 0.8rem; line-height: 1.6; }
-
-    /* ─── TESTIMONIALS ────────────────────────────────── */
-    .testimonials { background: var(--bg); }
-
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
-    .testi-card {
+    .pricing-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
+      border-radius: 14px;
+      padding: 2rem 1.6rem;
+      transition: border-color 0.3s;
     }
 
-    .testi-stars {
-      color: #ffd700;
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.15em;
-    }
+    .pricing-card:hover { border-color: rgba(0,200,255,0.25); }
 
-    .testi-text {
-      font-size: 0.92rem;
-      color: var(--text);
-      line-height: 1.9;
-      margin-bottom: 1.5rem;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    .testi-author {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .testi-avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
+    .pricing-label { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; font-family: 'Noto Sans JP', sans-serif; }
+    .pricing-price {
+      font-size: 1.5rem;
+      font-weight: 900;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #000;
-      flex-shrink: 0;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
     }
+    .pricing-sub { font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; font-family: 'Noto Sans JP', sans-serif; }
+    .pricing-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.8; font-family: 'Noto Sans JP', sans-serif; }
 
-    .testi-name {
-      font-size: 0.88rem;
-      font-weight: 700;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    .testi-role {
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-family: 'Noto Sans JP', sans-serif;
-    }
+    .pricing-note { font-size: 0.82rem; color: var(--muted); text-align: center; font-family: 'Noto Sans JP', sans-serif; padding: 1rem; background: var(--card); border-radius: 8px; border: 1px solid var(--border); }
 
     /* ─── PROCESS ─────────────────────────────────────── */
     .process { background: var(--surface); }
 
     .process-steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 0;
       position: relative;
     }
 
-    .process-step {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      position: relative;
-    }
-
-    .process-step::after {
-      content: '→';
-      position: absolute;
-      right: -0.6rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      font-size: 1.2rem;
-    }
-
+    .process-step { text-align: center; padding: 2rem 1.5rem; position: relative; }
+    .process-step::after { content: '→'; position: absolute; right: -0.6rem; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 1.2rem; }
     .process-step:last-child::after { display: none; }
 
-    .step-num {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #000;
-      font-weight: 900;
-      font-size: 1rem;
+    .step-num { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #000; font-weight: 900; font-size: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .step-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; font-family: 'Noto Sans JP', sans-serif; }
+    .step-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.7; font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ─── CTA SECTION ────────────────────────────────── */
+    .cta-section { background: var(--bg); text-align: center; padding: 8rem 5%; position: relative; overflow: hidden; }
+    .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,200,255,0.06), transparent); }
+    .cta-section h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; font-family: 'Noto Sans JP', sans-serif; position: relative; }
+    .cta-section > p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.9; font-family: 'Noto Sans JP', sans-serif; position: relative; }
+
+    .cta-multi {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-    }
-
-    .step-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    .step-desc {
-      font-size: 0.8rem;
-      color: var(--muted);
-      line-height: 1.7;
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    /* ─── CTA ─────────────────────────────────────────── */
-    .cta-section {
-      background: var(--bg);
-      text-align: center;
-      padding: 8rem 5%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-bg {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,200,255,0.06), transparent);
-    }
-
-    .cta-section h2 {
-      font-size: clamp(1.8rem, 4vw, 3.2rem);
-      font-weight: 800;
-      margin-bottom: 1rem;
-      font-family: 'Noto Sans JP', sans-serif;
+      gap: 1rem;
       position: relative;
     }
 
-    .cta-section p {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 480px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.9;
-      font-family: 'Noto Sans JP', sans-serif;
-      position: relative;
-    }
+    .cta-divider { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
 
-    .cta-section .btn-primary { position: relative; font-size: 1rem; padding: 1rem 2.5rem; }
-
-    /* ─── FOOTER ──────────────────────────────────────── */
-    footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 3rem 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .footer-copy {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 0.82rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--text); }
-
-    /* ─── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
-      .stat-item:last-child { border-bottom: none; }
+      .value-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .value-item:last-child { border-bottom: none; }
       .process-step::after { display: none; }
-      footer { flex-direction: column; text-align: center; }
-    }
-
-    /* ─── ANIMATIONS ──────────────────────────────────── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
   </style>
 </head>
@@ -787,13 +404,13 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">KIYOMINE</div>
+  <a href="/" class="nav-logo">KIYOMINE</a>
   <ul class="nav-links">
-    <li><a href="#trust">信頼性</a></li>
-    <li><a href="#services">サービス</a></li>
-    <li><a href="#vision">ビジョン</a></li>
-    <li><a href="#process">進め方</a></li>
-    <li><a href="#contact" class="nav-cta">無料相談</a></li>
+    <li><a href="/services/">サービス</a></li>
+    <li><a href="/#pricing">料金目安</a></li>
+    <li><a href="/#process">進め方</a></li>
+    <li><a href="/about/">事業者情報</a></li>
+    <li><a href="/contact/" class="nav-cta">無料相談</a></li>
   </ul>
 </nav>
 
@@ -806,93 +423,114 @@
 
   <div class="hero-badge">
     <span class="badge-dot"></span>
-    AIrffic World — 稼働中
+    2026年 事業開始
   </div>
 
-  <p class="hero-vision">AI Solutions for the Future</p>
-
   <h1 class="hero-title">
-    <span class="brand">AIrffic</span><br>World
+    動かす現場に、<br><span class="brand">判断するAIを。</span>
   </h1>
 
-  <h2 class="hero-subtitle">AIで、世界を一つに。</h2>
-
   <p class="hero-desc">
-    業種・規模を問わず、AIの力で組織の壁を越える。<br>
-    研修から開発、現場の効率化まで—<br>
-    KIYOMINEが、あなたのAI変革をワンストップで支援します。
+    航空・物流・点検現場のオペレーションを、<br>
+    画像認識と予測AIで自動化する。<br>
+    KIYOMINEは「動く現場」のためのAIをつくります。
   </p>
 
   <div class="hero-cta-group">
-    <a href="#contact" class="btn-primary">
-      &#x2709; 無料相談を予約する
+    <a href="/contact/" class="btn-primary">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      無料相談を予約する（30分）
     </a>
-    <a href="#services" class="btn-secondary">
-      &#x25BE; サービスを見る
+    <a href="/services/" class="btn-secondary">
+      サービスを見る
     </a>
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat-item fade-in">
-    <div class="stat-num">150+</div>
-    <div class="stat-label">導入企業数</div>
+<!-- VALUE PROPS -->
+<div class="value-props">
+  <div class="value-item fade-in">
+    <div class="value-icon" aria-hidden="true">
+      <svg width="28" height="28" fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    </div>
+    <div class="value-label">現場重視</div>
+    <div class="value-desc">机上ではなく実際の<br>業務フローに即した設計</div>
   </div>
-  <div class="stat-item fade-in">
-    <div class="stat-num">98%</div>
-    <div class="stat-label">顧客満足度</div>
+  <div class="value-item fade-in">
+    <div class="value-icon" aria-hidden="true">
+      <svg width="28" height="28" fill="none" stroke="var(--accent2)" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    </div>
+    <div class="value-label">最短2週間PoC</div>
+    <div class="value-desc">小さく始めて投資<br>リスクを最小化</div>
   </div>
-  <div class="stat-item fade-in">
-    <div class="stat-num">5</div>
-    <div class="stat-label">専門領域</div>
+  <div class="value-item fade-in">
+    <div class="value-icon" aria-hidden="true">
+      <svg width="28" height="28" fill="none" stroke="var(--accent3)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+    </div>
+    <div class="value-label">業種特化</div>
+    <div class="value-desc">航空・物流・点検領域に<br>フォーカスした専門支援</div>
   </div>
-  <div class="stat-item fade-in">
-    <div class="stat-num">3年+</div>
-    <div class="stat-label">AI特化実績</div>
+  <div class="value-item fade-in">
+    <div class="value-icon" aria-hidden="true">
+      <svg width="28" height="28" fill="none" stroke="#ffa500" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div class="value-label">長期パートナー</div>
+    <div class="value-desc">導入後の保守・改善も<br>一貫してサポート</div>
   </div>
 </div>
 
 <!-- TRUST -->
 <section class="trust" id="trust">
   <div class="section-header center">
-    <span class="section-tag">Trust &amp; Credibility</span>
+    <span class="section-tag">Why KIYOMINE</span>
     <h2 class="section-title">なぜ KIYOMINEが選ばれるのか</h2>
     <p class="section-desc">
-      AIの受注においてもっとも重要なのは「信用」。私たちは実績・透明性・専門性の三軸で信頼を証明します。
+      AIに一番必要なのは「信用」。透明性・専門性・誠実なコミュニケーションの三軸で、信頼できるパートナーシップを築きます。
     </p>
   </div>
 
   <div class="trust-grid">
     <div class="trust-card fade-in">
-      <div class="trust-icon">🏆</div>
-      <h3>確かな開発実績</h3>
-      <p>製造・医療・小売・物流など多業種でのAI導入を完遂。プロジェクト成功率95%以上を維持し続けています。</p>
+      <div class="trust-icon" aria-hidden="true">
+        <svg fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+      </div>
+      <h3>PoCから始める実証主義</h3>
+      <p>最初から大規模な投資は求めません。2週間のPoC（概念実証）で実際の効果を一緒に確認してから、本番開発に進みます。</p>
     </div>
     <div class="trust-card fade-in">
-      <div class="trust-icon">🎓</div>
-      <h3>認定資格・専門知識</h3>
-      <p>AWS Machine Learning・Google Cloud AI認定を保有。最新のLLM・生成AIから組込みMLまで幅広く対応します。</p>
-    </div>
-    <div class="trust-card fade-in">
-      <div class="trust-icon">🔒</div>
+      <div class="trust-icon" aria-hidden="true">
+        <svg fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
       <h3>セキュリティ・守秘義務</h3>
       <p>NDA締結を標準とし、機密情報の取り扱いに万全を期します。データはお客様の同意なく外部提供しません。</p>
     </div>
     <div class="trust-card fade-in">
-      <div class="trust-icon">💬</div>
+      <div class="trust-icon" aria-hidden="true">
+        <svg fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+      </div>
       <h3>透明なコミュニケーション</h3>
-      <p>週次レポートと進捗ダッシュボードで状況をリアルタイム共有。「任せて放置」ではなく共に作り上げます。</p>
+      <p>週次レポートと進捗共有で状況をリアルタイムにお伝えします。「任せて放置」ではなく、共に作り上げます。</p>
     </div>
     <div class="trust-card fade-in">
-      <div class="trust-icon">⚡</div>
-      <h3>スピードとアジリティ</h3>
-      <p>PoC（概念実証）を最短2週間で提供。素早い検証サイクルで、投資リスクを最小化しながら価値を最大化します。</p>
+      <div class="trust-icon" aria-hidden="true">
+        <svg fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+      </div>
+      <h3>正直な技術提案</h3>
+      <p>AIが適切でないケースは正直にお伝えします。流行りの技術を無理に使うのではなく、課題に合った最適解を提案します。</p>
     </div>
     <div class="trust-card fade-in">
-      <div class="trust-icon">🌐</div>
-      <h3>長期パートナーシップ</h3>
-      <p>導入後の保守・改善・追加開発まで一貫してサポート。AIは一度作って終わりではなく、育てるものと考えます。</p>
+      <div class="trust-icon" aria-hidden="true">
+        <svg fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>中小・中堅企業に特化</h3>
+      <p>大手SIerの提案が「大企業向けすぎる」と感じたことはありませんか？KIYOMINEは中小・中堅企業の現実的な予算・体制に合わせた支援が専門です。</p>
+    </div>
+    <div class="trust-card fade-in">
+      <div class="trust-icon" aria-hidden="true">
+        <svg fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <h3>継続的な改善サポート</h3>
+      <p>導入後の保守・改善・追加開発まで一貫してサポート。AIは一度作って終わりではなく、現場とともに育てるものと考えます。</p>
     </div>
   </div>
 </section>
@@ -901,86 +539,113 @@
 <section id="services">
   <div class="section-header">
     <span class="section-tag">Our Services</span>
-    <h2 class="section-title">5つの専門サービス</h2>
+    <h2 class="section-title">4つの専門領域</h2>
     <p class="section-desc">
-      各領域で深い専門性を持つチームが、あなたの課題に合わせた最適解を提供します。
+      「動く現場」に特化した4本柱。汎用AIでは届かない、業務現場のリアルな課題を解決します。
     </p>
   </div>
 
   <div class="services-grid">
     <!-- 1 -->
-    <div class="service-card s1 fade-in">
+    <a href="/services/aviation-logistics/" class="service-card s1 fade-in">
       <div class="service-num">01</div>
-      <div class="service-icon-wrap">🧠</div>
-      <h3>AI研修・教育</h3>
-      <p class="en-title">AI Training &amp; Education</p>
-      <p>ChatGPT・Copilotの基礎から、プロンプトエンジニアリング・MLOpsまで。社員全員がAIを使いこなせる組織へ変革します。経営層向け戦略研修から現場向け実践研修まで、階層別にカスタマイズ。</p>
-      <div class="service-tags">
-        <span class="tag">LLM基礎</span>
-        <span class="tag">プロンプト設計</span>
-        <span class="tag">社内AI推進</span>
-        <span class="tag">カスタム研修</span>
+      <div class="service-icon-wrap">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
       </div>
-    </div>
+      <h3>航空・物流オペレーションAI</h3>
+      <p class="en-title">Aviation &amp; Logistics AI</p>
+      <p>ドローン運航管理・配送ルート最適化・運行データ解析など、移動と輸送の現場を自動化。航空・物流の業務フローをAIで効率化します。</p>
+      <div class="service-tags">
+        <span class="tag">ドローン管制</span>
+        <span class="tag">ルート最適化</span>
+        <span class="tag">運行解析</span>
+      </div>
+      <div class="service-link">詳しく見る →</div>
+    </a>
 
     <!-- 2 -->
-    <div class="service-card s2 fade-in">
+    <a href="/services/inspection-vision/" class="service-card s2 fade-in">
       <div class="service-num">02</div>
-      <div class="service-icon-wrap">💻</div>
-      <h3>AI開発・受託案件</h3>
-      <p class="en-title">AI Development &amp; Projects</p>
-      <p>要件定義から設計・実装・テスト・リリースまで一気通貫。社内ツール自動化・カスタムChatbot・データ分析基盤など、あらゆるAI開発案件に対応します。アジャイルで素早くPoC→本番へ。</p>
-      <div class="service-tags">
-        <span class="tag">RAG / Chatbot</span>
-        <span class="tag">API開発</span>
-        <span class="tag">ML Pipeline</span>
-        <span class="tag">PoC→本番</span>
+      <div class="service-icon-wrap">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
       </div>
-    </div>
+      <h3>点検・検査の画像認識</h3>
+      <p class="en-title">Inspection &amp; Vision AI</p>
+      <p>インフラ点検・設備異常検知・品質検査の自動化。「見て判断する」業務を画像認識モデル＋業務ロジックで置き換え、見落としゼロを目指します。</p>
+      <div class="service-tags">
+        <span class="tag">異常検知</span>
+        <span class="tag">外観検査</span>
+        <span class="tag">インフラ点検</span>
+      </div>
+      <div class="service-link">詳しく見る →</div>
+    </a>
 
     <!-- 3 -->
-    <div class="service-card s3 fade-in">
+    <a href="/services/iot-insights/" class="service-card s3 fade-in">
       <div class="service-num">03</div>
-      <div class="service-icon-wrap">⚙️</div>
-      <h3>業務効率化・自動化</h3>
-      <p class="en-title">Process Automation</p>
-      <p>書類処理・データ入力・レポート作成・問合せ対応など、繰り返し業務をAIとRPAで自動化。コスト削減・ヒューマンエラー排除・従業員体験の向上を同時に実現します。</p>
-      <div class="service-tags">
-        <span class="tag">RPA × AI</span>
-        <span class="tag">OCR自動化</span>
-        <span class="tag">社内DX</span>
-        <span class="tag">工数削減</span>
+      <div class="service-icon-wrap">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
       </div>
-    </div>
+      <h3>IoT連携・インサイト自動化</h3>
+      <p class="en-title">IoT &amp; Insights</p>
+      <p>センサーデータをダッシュボード化し、自動アラートと次のアクション提案まで一気通貫。「データを集めただけで終わる」を解消します。</p>
+      <div class="service-tags">
+        <span class="tag">センサー連携</span>
+        <span class="tag">予知保全</span>
+        <span class="tag">自動アラート</span>
+      </div>
+      <div class="service-link">詳しく見る →</div>
+    </a>
 
     <!-- 4 -->
-    <div class="service-card s4 fade-in">
+    <a href="/services/sme-operations/" class="service-card s4 fade-in">
       <div class="service-num">04</div>
-      <div class="service-icon-wrap">🏭</div>
-      <h3>業界特化型AIサービス</h3>
-      <p class="en-title">Industry-Specific AI</p>
-      <p>汎用AIでは届かない、業界固有の専門知識とデータを組み合わせた特化型ソリューション。医療・製造・金融・建設・農業など、各業界のドメインエキスパートと共に設計します。</p>
-      <div class="service-tags">
-        <span class="tag">医療AI</span>
-        <span class="tag">製造品質検査</span>
-        <span class="tag">農業予測</span>
-        <span class="tag">金融分析</span>
+      <div class="service-icon-wrap">
+        <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-    </div>
+      <h3>中小企業の業務効率化</h3>
+      <p class="en-title">SME Operations AI</p>
+      <p>上記3領域の知見を横断的に活用。書類処理・問い合わせ対応・レポート作成をRPA・生成AI・社内データ活用で自動化します。</p>
+      <div class="service-tags">
+        <span class="tag">RPA × AI</span>
+        <span class="tag">生成AI活用</span>
+        <span class="tag">社内DX</span>
+      </div>
+      <div class="service-link">詳しく見る →</div>
+    </a>
+  </div>
+</section>
 
-    <!-- 5 -->
-    <div class="service-card s5 fade-in">
-      <div class="service-num">05</div>
-      <div class="service-icon-wrap">🔗</div>
-      <h3>IoT × AI 効率化</h3>
-      <p class="en-title">IoT &amp; AI Integration</p>
-      <p>センサー・カメラ・PLC等のデバイスとAIをリアルタイム連携。設備の異常検知・予知保全・生産ラインの自動最適化など、物理世界のデータをインテリジェントに活用します。</p>
-      <div class="service-tags">
-        <span class="tag">エッジAI</span>
-        <span class="tag">予知保全</span>
-        <span class="tag">リアルタイム分析</span>
-        <span class="tag">スマートファクトリー</span>
-      </div>
+<!-- APPROACH / 私たちの考え方 -->
+<section class="approach" id="approach">
+  <div class="section-header center">
+    <span class="section-tag">Our Approach</span>
+    <h2 class="section-title">私たちの考え方</h2>
+    <p class="section-desc">
+      KIYOMINEは「技術を売る」のではなく、「現場の課題を解く」ことを出発点にしています。
+    </p>
+  </div>
+
+  <div class="approach-grid">
+    <div class="approach-card fade-in">
+      <div class="approach-step">Step 01</div>
+      <h3>まず現場を理解する</h3>
+      <p>最初のヒアリングで技術の話はしません。どんな業務で、誰が、どんな判断に困っているか——現場の実態を深く理解してから、技術を選びます。</p>
+    </div>
+    <div class="approach-card fade-in">
+      <div class="approach-step">Step 02</div>
+      <h3>小さく検証してから拡大する</h3>
+      <p>AIプロジェクトの失敗の多くは「いきなり大規模に始めること」に起因します。まず2週間のPoCで実証し、効果を確認してから投資を拡大します。</p>
+    </div>
+    <div class="approach-card fade-in">
+      <div class="approach-step">Step 03</div>
+      <h3>現場と一緒に育てる</h3>
+      <p>導入して終わりではありません。現場スタッフが使いこなせるまでサポートし、データが蓄積されるにつれて精度を継続改善します。AIは育てるものです。</p>
+    </div>
+    <div class="approach-card fade-in">
+      <div class="approach-step">前提</div>
+      <h3>AIが適切でない場合は正直に言う</h3>
+      <p>全ての課題にAIが有効とは限りません。費用対効果が見込めないケースや、シンプルなツールで解決できる場合は、正直にお伝えします。誠実さが長期的な信頼の基盤です。</p>
     </div>
   </div>
 </section>
@@ -991,89 +656,61 @@
     <span class="section-tag">Our Vision</span>
   </div>
 
-  <div class="vision-globe">
+  <div class="vision-globe" aria-hidden="true">
     <div class="globe-ring ring1"></div>
     <div class="globe-ring ring2"></div>
     <div class="globe-ring ring3"></div>
-    <div class="globe-core">🌏</div>
+    <div class="globe-core">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
   </div>
 
   <div class="vision-name">AIrffic World</div>
-  <p class="vision-tagline">AIで、世界を一つに。すべての人・企業・社会がつながる未来へ。</p>
+  <p class="vision-tagline">AIで、動く現場をひとつに。</p>
 
-  <p class="section-desc" style="margin: 0 auto 3rem; text-align:center;">
-    私たちのビジョンは「AIrffic World」—Artificial Intelligence が Traffic のように、人・情報・ビジネスを自由につなぐ世界です。言語の壁・地域の壁・組織の壁をAIが溶かし、誰もが平等にチャンスを手にできる社会をつくります。
+  <p class="section-desc" style="margin: 0 auto; text-align: center;">
+    AIrffic World——AI が Traffic のように、航空・物流・点検の「動く現場」を自由につなぎ、効率化する世界。<br>
+    規模を問わず、現場に判断するAIを届けることが、KIYOMINEのビジョンです。
   </p>
-
-  <div class="vision-pillars">
-    <div class="pillar fade-in">
-      <div class="pillar-icon">🤝</div>
-      <div class="pillar-title">繋げる</div>
-      <div class="pillar-desc">企業・人・社会をAIで有機的につなぐ</div>
-    </div>
-    <div class="pillar fade-in">
-      <div class="pillar-icon">🚀</div>
-      <div class="pillar-title">加速する</div>
-      <div class="pillar-desc">AIで人間の可能性を何倍にも引き上げる</div>
-    </div>
-    <div class="pillar fade-in">
-      <div class="pillar-icon">⚖️</div>
-      <div class="pillar-title">平等にする</div>
-      <div class="pillar-desc">大企業も中小企業も同じAIの恩恵を</div>
-    </div>
-    <div class="pillar fade-in">
-      <div class="pillar-icon">🌱</div>
-      <div class="pillar-title">持続させる</div>
-      <div class="pillar-desc">人と環境に優しいAI活用を追求する</div>
-    </div>
-  </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
+<!-- PRICING -->
+<section class="pricing" id="pricing">
   <div class="section-header center">
-    <span class="section-tag">Client Voices</span>
-    <h2 class="section-title">お客様の声</h2>
-    <p class="section-desc">実際に導入いただいたお客様からのフィードバックです。</p>
+    <span class="section-tag">Pricing</span>
+    <h2 class="section-title">料金の目安</h2>
+    <p class="section-desc">
+      プロジェクトの内容・規模によって変わります。まずは無料相談でご要件をお聞かせください。
+    </p>
   </div>
 
-  <div class="testi-grid">
-    <div class="testi-card fade-in">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">「AI研修を導入してから、社員の業務スピードが平均40%向上しました。難しい概念もわかりやすく教えていただき、現場から大好評です。」</p>
-      <div class="testi-author">
-        <div class="testi-avatar">T</div>
-        <div>
-          <div class="testi-name">田中 達也 様</div>
-          <div class="testi-role">製造業 / DX推進部長</div>
-        </div>
-      </div>
+  <div class="pricing-grid">
+    <div class="pricing-card fade-in">
+      <div class="pricing-label">PoC（概念実証）</div>
+      <div class="pricing-price">¥300,000〜</div>
+      <div class="pricing-sub">期間: 2週間〜</div>
+      <p>課題の実証実験。小さく始めて効果を確認してから本番へ進みます。</p>
     </div>
-
-    <div class="testi-card fade-in">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">「IoT×AIで工場の不良品率を従来比60%削減。KIYOMINEさんはドメイン知識を理解した上で提案してくれるので、的外れな提案が一切ありません。」</p>
-      <div class="testi-author">
-        <div class="testi-avatar">S</div>
-        <div>
-          <div class="testi-name">佐藤 美咲 様</div>
-          <div class="testi-role">食品メーカー / 製造部長</div>
-        </div>
-      </div>
+    <div class="pricing-card fade-in">
+      <div class="pricing-label">本番開発</div>
+      <div class="pricing-price">¥1,500,000〜</div>
+      <div class="pricing-sub">案件規模により応相談</div>
+      <p>PoCで実証した内容を本番環境へ。アジャイルで段階的に構築します。</p>
     </div>
-
-    <div class="testi-card fade-in">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">「受付・問合せ対応をAI化し、スタッフの残業が月30時間以上削減。コスト以上の価値を得られました。誠実で丁寧な対応も非常に印象的です。」</p>
-      <div class="testi-author">
-        <div class="testi-avatar">K</div>
-        <div>
-          <div class="testi-name">木村 洋介 様</div>
-          <div class="testi-role">医療クリニック / 院長</div>
-        </div>
-      </div>
+    <div class="pricing-card fade-in">
+      <div class="pricing-label">AI研修（半日）</div>
+      <div class="pricing-price">¥150,000〜</div>
+      <div class="pricing-sub">1回・最大30名</div>
+      <p>経営層向け戦略研修から現場向け実践研修まで。要件に応じてカスタマイズします。</p>
+    </div>
+    <div class="pricing-card fade-in">
+      <div class="pricing-label">月次保守・改善</div>
+      <div class="pricing-price">¥80,000〜</div>
+      <div class="pricing-sub">月額・継続サポート</div>
+      <p>リリース後のモニタリング・精度改善・追加機能開発を継続的にサポートします。</p>
     </div>
   </div>
+  <p class="pricing-note">上記はあくまで目安です。要件定義後に正式なお見積りをご提示します。</p>
 </section>
 
 <!-- PROCESS -->
@@ -1117,41 +754,60 @@
 <section class="cta-section" id="contact">
   <div class="cta-bg"></div>
   <span class="section-tag">Get Started</span>
-  <h2>AIの力を、あなたのビジネスへ。</h2>
-  <p>まずは30分の無料相談から。費用・納期・技術的な疑問、何でもお気軽にご相談ください。</p>
-  <a href="mailto:contact@kiyomine.com" class="btn-primary">
-    &#x2709;&nbsp; 無料相談を予約する
-  </a>
+  <h2>まず、話してみませんか。</h2>
+  <p>現場の課題を30分聞かせてください。AIで解決できるか、コストに見合うかを正直にお伝えします。</p>
+  <div class="cta-multi">
+    <a href="/contact/" class="btn-primary" style="font-size: 1rem; padding: 1rem 2.5rem;">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      無料相談を予約する（30分）
+    </a>
+    <span class="cta-divider">または</span>
+    <a href="mailto:contact@kiyomine.com" class="btn-outline">
+      contact@kiyomine.com にメールする
+    </a>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">KIYOMINE</div>
-  <p class="footer-copy">&copy; 2026 KIYOMINE. All rights reserved. — AIrffic World Vision</p>
-  <ul class="footer-links">
-    <li><a href="#trust">信頼性</a></li>
-    <li><a href="#services">サービス</a></li>
-    <li><a href="#vision">ビジョン</a></li>
-    <li><a href="#contact">お問い合わせ</a></li>
-  </ul>
+  <div class="footer-top">
+    <div>
+      <a href="/" class="footer-logo">KIYOMINE</a>
+      <p class="footer-tagline">動く現場のAIオペレーション<br>AIrffic World Vision</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <div class="footer-nav-group">
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="/services/aviation-logistics/">航空・物流AI</a></li>
+          <li><a href="/services/inspection-vision/">点検・画像認識</a></li>
+          <li><a href="/services/iot-insights/">IoT・インサイト</a></li>
+          <li><a href="/services/sme-operations/">中小企業効率化</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>KIYOMINE</h4>
+        <ul>
+          <li><a href="/about/">事業者情報</a></li>
+          <li><a href="/contact/">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-group">
+        <h4>法的情報</h4>
+        <ul>
+          <li><a href="/legal/privacy/">プライバシーポリシー</a></li>
+          <li><a href="/legal/terms/">利用規約</a></li>
+          <li><a href="/legal/tokushoho/">特定商取引法</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 KIYOMINE. All rights reserved.</p>
+    <p class="footer-vision">AIrffic World — AI で、動く現場をひとつに。</p>
+  </div>
 </footer>
 
-<script>
-  // Fade-in on scroll
-  const observer = new IntersectionObserver(
-    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.1 }
-  );
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-  // Mouse-follow glow on service cards
-  document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-    });
-  });
-</script>
+<script src="/js/main.js"></script>
 </body>
 </html>
