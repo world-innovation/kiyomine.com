@@ -1,20 +1,25 @@
 /* ===================================================
-   KIYOMINE — Shared Stylesheet
+   KIYOMINE — Shared Stylesheet  (Redesign 2026)
    =================================================== */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:      #020408;
-  --surface: #080f1a;
-  --card:    #0d1825;
-  --border:  rgba(255,255,255,0.07);
-  --accent:  #00c8ff;
-  --accent2: #7b5fff;
-  --accent3: #00ffa3;
-  --text:    #e8edf5;
-  --muted:   #7a8ba0;
-  --glow:    rgba(0,200,255,0.18);
+  /* Base: midnight navy — 夜明け前の深い空 */
+  --bg:      #040c1e;
+  --surface: #071428;
+  --card:    #0a1c35;
+  --border:  rgba(140, 180, 255, 0.08);
+
+  /* Accents */
+  --accent:  #5bb8ff;    /* Clear sky blue — クリアブルー */
+  --accent2: #a0c8f0;    /* Soft dawn blue — 夜明けの白光 */
+  --accent3: #e8c46a;    /* Dawn gold — 暁の金 (use sparingly) */
+
+  /* Text */
+  --text:    #dceeff;
+  --muted:   #5e7a9e;
+  --glow:    rgba(91, 184, 255, 0.12);
 }
 
 html { scroll-behavior: smooth; }
@@ -36,16 +41,27 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 5%;
-  height: 64px;
-  background: rgba(2,4,8,0.88);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  height: 52px;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+}
+
+nav.nav--scrolled {
+  background: rgba(4, 12, 30, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: var(--border);
+}
+
+nav.nav--hidden {
+  transform: translateY(-100%);
 }
 
 .nav-logo {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,7 +71,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.2rem;
   list-style: none;
   align-items: center;
 }
@@ -63,7 +79,7 @@ nav {
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   transition: color 0.2s;
@@ -73,10 +89,11 @@ nav {
 
 .nav-cta {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #000 !important;
-  padding: 0.45rem 1.2rem;
-  border-radius: 6px;
+  color: var(--bg) !important;
+  padding: 0.38rem 1.1rem;
+  border-radius: 5px;
   font-weight: 700 !important;
+  font-size: 0.8rem !important;
   transition: opacity 0.2s !important;
 }
 
@@ -88,15 +105,15 @@ nav {
   align-items: center;
   gap: 0.5rem;
   background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #000;
+  color: var(--bg);
   font-weight: 700;
   font-size: 0.95rem;
   padding: 0.85rem 2rem;
-  border-radius: 8px;
+  border-radius: 7px;
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 30px rgba(0,200,255,0.25);
+  box-shadow: 0 0 28px rgba(91, 184, 255, 0.2);
   border: none;
   cursor: pointer;
   font-family: inherit;
@@ -104,7 +121,7 @@ nav {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 50px rgba(0,200,255,0.4);
+  box-shadow: 0 4px 40px rgba(91, 184, 255, 0.35);
 }
 
 .btn-secondary {
@@ -113,10 +130,10 @@ nav {
   gap: 0.5rem;
   background: transparent;
   color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.95rem;
   padding: 0.85rem 2rem;
-  border-radius: 8px;
+  border-radius: 7px;
   text-decoration: none;
   border: 1px solid var(--border);
   transition: border-color 0.2s, background 0.2s;
@@ -125,8 +142,8 @@ nav {
 }
 
 .btn-secondary:hover {
-  border-color: rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.04);
+  border-color: rgba(91, 184, 255, 0.25);
+  background: rgba(91, 184, 255, 0.04);
 }
 
 .btn-outline {
@@ -135,18 +152,18 @@ nav {
   gap: 0.5rem;
   background: transparent;
   color: var(--accent);
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 0.88rem;
   padding: 0.75rem 1.6rem;
-  border-radius: 8px;
+  border-radius: 7px;
   text-decoration: none;
-  border: 1px solid rgba(0,200,255,0.3);
+  border: 1px solid rgba(91, 184, 255, 0.22);
   transition: border-color 0.2s, background 0.2s;
 }
 
 .btn-outline:hover {
   border-color: var(--accent);
-  background: rgba(0,200,255,0.06);
+  background: rgba(91, 184, 255, 0.05);
 }
 
 /* ─── SECTION COMMON ─────────────────────────────── */
@@ -154,12 +171,13 @@ section { padding: 6rem 5%; }
 
 .section-tag {
   display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.75rem;
+  opacity: 0.75;
 }
 
 .section-title {
@@ -168,13 +186,14 @@ section { padding: 6rem 5%; }
   line-height: 1.2;
   margin-bottom: 1rem;
   font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .section-desc {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--muted);
-  max-width: 560px;
-  line-height: 1.9;
+  max-width: 520px;
+  line-height: 2;
   font-family: 'Noto Sans JP', sans-serif;
 }
 
@@ -193,13 +212,13 @@ section { padding: 6rem 5%; }
   overflow: hidden;
 }
 
-.card:hover { border-color: rgba(0,200,255,0.25); transform: translateY(-4px); }
+.card:hover { border-color: rgba(91, 184, 255, 0.2); transform: translateY(-4px); }
 
 .card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   opacity: 0;
   transition: opacity 0.3s;
@@ -209,13 +228,13 @@ section { padding: 6rem 5%; }
 
 /* ─── TAGS ───────────────────────────────────────── */
 .tag {
-  background: rgba(0,200,255,0.07);
-  border: 1px solid rgba(0,200,255,0.15);
+  background: rgba(91, 184, 255, 0.06);
+  border: 1px solid rgba(91, 184, 255, 0.12);
   color: var(--accent);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  border-radius: 3px;
   letter-spacing: 0.04em;
 }
 
@@ -236,9 +255,9 @@ footer {
 }
 
 .footer-logo {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   background: linear-gradient(90deg, var(--accent), var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -249,9 +268,11 @@ footer {
 }
 
 .footer-tagline {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--muted);
   font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.7;
+  opacity: 0.8;
 }
 
 .footer-nav {
@@ -261,12 +282,13 @@ footer {
 }
 
 .footer-nav-group h4 {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
   margin-bottom: 0.75rem;
+  opacity: 0.6;
 }
 
 .footer-nav-group ul {
@@ -277,7 +299,7 @@ footer {
 }
 
 .footer-nav-group a {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.2s;
@@ -297,15 +319,16 @@ footer {
 }
 
 .footer-copy {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--muted);
+  opacity: 0.7;
 }
 
 .footer-vision {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--muted);
-  letter-spacing: 0.08em;
-  opacity: 0.6;
+  letter-spacing: 0.1em;
+  opacity: 0.45;
 }
 
 /* ─── PAGE INNER LAYOUT ──────────────────────────── */
@@ -398,8 +421,8 @@ footer {
 /* ─── ANIMATIONS ─────────────────────────────────── */
 .fade-in {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-in.visible {
@@ -409,7 +432,7 @@ footer {
 
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.4); }
+  50% { opacity: 0.3; transform: scale(1.5); }
 }
 
 @keyframes spin {
