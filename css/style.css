@@ -5,21 +5,21 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Base: midnight navy — 夜明け前の深い空 */
-  --bg:      #040c1e;
-  --surface: #071428;
-  --card:    #0a1c35;
-  --border:  rgba(140, 180, 255, 0.08);
+  /* Base: white — 澄み切った空 */
+  --bg:      #ffffff;
+  --surface: #f4f7fb;
+  --card:    #ffffff;
+  --border:  rgba(0, 40, 120, 0.08);
 
   /* Accents */
-  --accent:  #5bb8ff;    /* Clear sky blue — クリアブルー */
-  --accent2: #a0c8f0;    /* Soft dawn blue — 夜明けの白光 */
-  --accent3: #e8c46a;    /* Dawn gold — 暁の金 (use sparingly) */
+  --accent:  #1e6fc4;    /* Deep sky blue — クリアブルー */
+  --accent2: #4a9de0;    /* Mid sky blue — 夜明けの青 */
+  --accent3: #c4890a;    /* Amber gold — 暁の金 (use sparingly) */
 
   /* Text */
-  --text:    #dceeff;
-  --muted:   #5e7a9e;
-  --glow:    rgba(91, 184, 255, 0.12);
+  --text:    #0d1f3c;
+  --muted:   #546a87;
+  --glow:    rgba(30, 111, 196, 0.1);
 }
 
 html { scroll-behavior: smooth; }
@@ -48,7 +48,7 @@ nav {
 }
 
 nav.nav--scrolled {
-  background: rgba(4, 12, 30, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom-color: var(--border);
