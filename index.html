@@ -63,8 +63,8 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(91,184,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(91,184,255,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(30,111,196,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,111,196,0.05) 1px, transparent 1px);
       background-size: 72px 72px;
       mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
     }
@@ -76,16 +76,16 @@
       pointer-events: none;
     }
 
-    .orb1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(91,184,255,0.07), transparent 70%); top: -150px; left: -200px; }
-    .orb2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(50,100,200,0.09), transparent 70%); bottom: -100px; right: -150px; }
-    .orb3 { width: 280px; height: 280px; background: radial-gradient(circle, rgba(232,196,106,0.04), transparent 70%); top: 35%; right: 12%; }
+    .orb1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(30,111,196,0.07), transparent 70%); top: -150px; left: -200px; }
+    .orb2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(74,157,224,0.06), transparent 70%); bottom: -100px; right: -150px; }
+    .orb3 { width: 280px; height: 280px; background: radial-gradient(circle, rgba(196,137,10,0.05), transparent 70%); top: 35%; right: 12%; }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(91,184,255,0.05);
-      border: 1px solid rgba(91,184,255,0.15);
+      background: rgba(30,111,196,0.06);
+      border: 1px solid rgba(30,111,196,0.18);
       border-radius: 999px;
       padding: 0.3rem 1rem;
       font-size: 0.72rem;
@@ -95,7 +95,7 @@
       text-transform: uppercase;
       margin-bottom: 2.5rem;
       position: relative;
-      opacity: 0.8;
+      opacity: 0.9;
     }
 
     .badge-dot {
@@ -187,12 +187,12 @@
       gap: 1.5rem;
     }
 
-    .trust-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; }
+    .trust-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
     .trust-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
-    .trust-card:hover { border-color: rgba(91,184,255,0.2); transform: translateY(-4px); }
+    .trust-card:hover { border-color: rgba(30,111,196,0.2); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,40,120,0.07); }
     .trust-card:hover::before { opacity: 1; }
 
-    .trust-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; background: rgba(91,184,255,0.06); }
+    .trust-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; background: rgba(30,111,196,0.07); }
     .trust-icon svg { width: 22px; height: 22px; }
 
     .trust-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; font-family: 'Noto Sans JP', sans-serif; }
@@ -222,14 +222,14 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(91,184,255,0.03), transparent 60%);
+      background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(30,111,196,0.04), transparent 60%);
       pointer-events: none;
     }
 
     .service-card:hover {
-      border-color: rgba(91,184,255,0.2);
+      border-color: rgba(30,111,196,0.2);
       transform: translateY(-6px);
-      box-shadow: 0 20px 60px rgba(4,12,30,0.5);
+      box-shadow: 0 20px 60px rgba(0,40,120,0.09);
     }
 
     .service-num { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 1rem; opacity: 0.5; }
@@ -243,19 +243,19 @@
 
     .service-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
-    .s1 .service-icon-wrap { background: rgba(91,184,255,0.08); }
-    .s2 .service-icon-wrap { background: rgba(136,180,224,0.08); }
-    .s3 .service-icon-wrap { background: rgba(78,201,180,0.08); }
-    .s4 .service-icon-wrap { background: rgba(232,196,106,0.08); }
+    .s1 .service-icon-wrap { background: rgba(30,111,196,0.08); }
+    .s2 .service-icon-wrap { background: rgba(88,140,200,0.08); }
+    .s3 .service-icon-wrap { background: rgba(20,160,140,0.08); }
+    .s4 .service-icon-wrap { background: rgba(196,137,10,0.08); }
 
-    .s1 .service-icon-wrap svg { stroke: #5bb8ff; }
-    .s2 .service-icon-wrap svg { stroke: #88b4e0; }
-    .s3 .service-icon-wrap svg { stroke: #4ec9b4; }
-    .s4 .service-icon-wrap svg { stroke: #e8c46a; }
+    .s1 .service-icon-wrap svg { stroke: #1e6fc4; }
+    .s2 .service-icon-wrap svg { stroke: #3a7abf; }
+    .s3 .service-icon-wrap svg { stroke: #14a08c; }
+    .s4 .service-icon-wrap svg { stroke: #c4890a; }
 
-    .s2 .tag { color: #88b4e0; background: rgba(136,180,224,0.07); border-color: rgba(136,180,224,0.14); }
-    .s3 .tag { color: #4ec9b4; background: rgba(78,201,180,0.07); border-color: rgba(78,201,180,0.14); }
-    .s4 .tag { color: #e8c46a; background: rgba(232,196,106,0.07); border-color: rgba(232,196,106,0.14); }
+    .s2 .tag { color: #3a7abf; background: rgba(58,122,191,0.07); border-color: rgba(58,122,191,0.14); }
+    .s3 .tag { color: #14a08c; background: rgba(20,160,140,0.07); border-color: rgba(20,160,140,0.14); }
+    .s4 .tag { color: #c4890a; background: rgba(196,137,10,0.07); border-color: rgba(196,137,10,0.14); }
 
     .service-link { font-size: 0.8rem; color: var(--accent); font-weight: 600; display: flex; align-items: center; gap: 0.3rem; margin-top: 0.5rem; opacity: 0.8; }
 
@@ -292,17 +292,17 @@
     .vision { background: var(--surface); text-align: center; }
 
     .vision-globe { width: 140px; height: 140px; margin: 0 auto 3rem; position: relative; display: flex; align-items: center; justify-content: center; }
-    .globe-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(91,184,255,0.14); animation: spin linear infinite; }
+    .globe-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(30,111,196,0.2); animation: spin linear infinite; }
     .ring1 { width: 100%; height: 100%; animation-duration: 14s; }
-    .ring2 { width: 72%; height: 72%; animation-duration: 9s; animation-direction: reverse; border-color: rgba(160,200,240,0.11); }
-    .ring3 { width: 46%; height: 46%; animation-duration: 6s; border-color: rgba(232,196,106,0.11); }
+    .ring2 { width: 72%; height: 72%; animation-duration: 9s; animation-direction: reverse; border-color: rgba(74,157,224,0.16); }
+    .ring3 { width: 46%; height: 46%; animation-duration: 6s; border-color: rgba(196,137,10,0.16); }
 
     .globe-core {
       width: 44px; height: 44px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       border-radius: 50%;
       z-index: 1;
-      box-shadow: 0 0 28px rgba(91,184,255,0.3);
+      box-shadow: 0 0 28px rgba(30,111,196,0.25);
       display: flex; align-items: center; justify-content: center;
     }
 
@@ -339,7 +339,7 @@
       transition: border-color 0.3s;
     }
 
-    .pricing-card:hover { border-color: rgba(91,184,255,0.2); }
+    .pricing-card:hover { border-color: rgba(30,111,196,0.2); box-shadow: 0 8px 30px rgba(0,40,120,0.06); }
 
     .pricing-label { font-size: 0.76rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; font-family: 'Noto Sans JP', sans-serif; }
     .pricing-price {
@@ -377,7 +377,7 @@
 
     /* ─── CTA SECTION ────────────────────────────────── */
     .cta-section { background: var(--bg); text-align: center; padding: 8rem 5%; position: relative; overflow: hidden; }
-    .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(91,184,255,0.04), transparent); }
+    .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(30,111,196,0.04), transparent); }
     .cta-section h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; font-family: 'Noto Sans JP', sans-serif; position: relative; }
     .cta-section > p { font-size: 0.95rem; color: var(--muted); max-width: 440px; margin: 0 auto 2.5rem; line-height: 2; font-family: 'Noto Sans JP', sans-serif; position: relative; }
 
@@ -447,21 +447,21 @@
 <div class="value-props">
   <div class="value-item fade-in">
     <div class="value-icon" aria-hidden="true">
-      <svg width="28" height="28" fill="none" stroke="var(--accent)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <svg width="28" height="28" fill="none" stroke="#1e6fc4" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
     </div>
     <div class="value-label">現場重視</div>
     <div class="value-desc">机上ではなく実際の<br>業務フローに即した設計</div>
   </div>
   <div class="value-item fade-in">
     <div class="value-icon" aria-hidden="true">
-      <svg width="28" height="28" fill="none" stroke="var(--accent2)" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <svg width="28" height="28" fill="none" stroke="#3a7abf" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
     </div>
     <div class="value-label">最短2週間PoC</div>
     <div class="value-desc">小さく始めて投資<br>リスクを最小化</div>
   </div>
   <div class="value-item fade-in">
     <div class="value-icon" aria-hidden="true">
-      <svg width="28" height="28" fill="none" stroke="var(--accent3)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      <svg width="28" height="28" fill="none" stroke="#14a08c" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
     </div>
     <div class="value-label">業種特化</div>
     <div class="value-desc">航空・物流・点検領域に<br>フォーカスした専門支援</div>
