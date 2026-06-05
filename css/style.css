@@ -33,7 +33,8 @@ body {
 }
 
 /* ─── NAV ───────────────────────────────────────── */
-nav {
+/* body > nav to avoid matching <nav class="footer-nav"> inside footer */
+body > nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
@@ -47,14 +48,14 @@ nav {
   transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease;
 }
 
-nav.nav--scrolled {
+body > nav.nav--scrolled {
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom-color: var(--border);
 }
 
-nav.nav--hidden {
+body > nav.nav--hidden {
   transform: translateY(-100%);
 }
 
