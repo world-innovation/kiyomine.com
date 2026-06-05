@@ -5,21 +5,21 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Base: white — 澄み切った空 */
+  /* Base: white — NASA precision white */
   --bg:      #ffffff;
-  --surface: #f4f7fb;
+  --surface: #f3f6fa;
   --card:    #ffffff;
-  --border:  rgba(0, 40, 120, 0.08);
+  --border:  rgba(0, 30, 100, 0.08);
 
-  /* Accents */
-  --accent:  #1e6fc4;    /* Deep sky blue — クリアブルー */
-  --accent2: #4a9de0;    /* Mid sky blue — 夜明けの青 */
-  --accent3: #c4890a;    /* Amber gold — 暁の金 (use sparingly) */
+  /* Accents — NASA deep blue palette */
+  --accent:  #0d57c8;    /* NASA-like electric deep blue */
+  --accent2: #3a80df;    /* Mid blue — sky horizon */
+  --accent3: #b87a08;    /* Amber — instrument gold (use sparingly) */
 
   /* Text */
-  --text:    #0d1f3c;
-  --muted:   #546a87;
-  --glow:    rgba(30, 111, 196, 0.1);
+  --text:    #050f24;
+  --muted:   #4e6480;
+  --glow:    rgba(13, 87, 200, 0.1);
 }
 
 html { scroll-behavior: smooth; }
@@ -48,7 +48,7 @@ nav {
 }
 
 nav.nav--scrolled {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom-color: var(--border);
@@ -71,7 +71,7 @@ nav.nav--hidden {
 
 .nav-links {
   display: flex;
-  gap: 2.2rem;
+  gap: 2rem;
   list-style: none;
   align-items: center;
 }
@@ -89,7 +89,7 @@ nav.nav--hidden {
 
 .nav-cta {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: var(--bg) !important;
+  color: #fff !important;
   padding: 0.38rem 1.1rem;
   border-radius: 5px;
   font-weight: 700 !important;
@@ -98,6 +98,187 @@ nav.nav--hidden {
 }
 
 .nav-cta:hover { opacity: 0.85; }
+
+/* ─── DROPDOWN ───────────────────────────────────── */
+.nav-dropdown-parent { position: relative; }
+
+.nav-dropdown-trigger {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.nav-dropdown-trigger:hover { color: var(--text); }
+.dropdown-chevron { transition: transform 0.25s ease; }
+.nav-dropdown-parent.is-open .dropdown-chevron { transform: rotate(180deg); }
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem;
+  min-width: 240px;
+  box-shadow: 0 8px 32px rgba(0, 20, 80, 0.1), 0 2px 8px rgba(0, 20, 80, 0.05);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 200;
+}
+
+.nav-dropdown-parent.is-open .nav-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown a {
+  display: block;
+  padding: 0.6rem 0.9rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.nav-dropdown a:hover { background: var(--surface); }
+
+.dropdown-label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.dropdown-sub {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-top: 0.1rem;
+}
+
+/* ─── HAMBURGER ──────────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── MOBILE NAV PANEL ───────────────────────────── */
+.nav-mobile {
+  position: fixed;
+  top: 52px;
+  left: 0; right: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  z-index: 99;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  box-shadow: 0 8px 24px rgba(0, 20, 80, 0.07);
+}
+
+.nav-mobile.is-open { max-height: 420px; }
+
+.nav-mobile > ul {
+  list-style: none;
+  padding: 0.5rem 5% 1rem;
+}
+
+.nav-mobile > ul > li { border-bottom: 1px solid var(--border); }
+.nav-mobile > ul > li:last-child { border-bottom: none; }
+
+.nav-mobile > ul > li > a {
+  display: block;
+  padding: 0.9rem 0;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-mobile > ul > li > a:hover { color: var(--accent); }
+
+.mobile-accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.9rem 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.mobile-accordion-trigger svg { transition: transform 0.25s ease; flex-shrink: 0; }
+.mobile-accordion.is-open .mobile-accordion-trigger svg { transform: rotate(180deg); }
+
+.mobile-accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.mobile-accordion.is-open .mobile-accordion-body { max-height: 250px; }
+
+.mobile-accordion-body a {
+  display: block;
+  padding: 0.65rem 1rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  border-left: 2px solid var(--border);
+  margin-left: 0.25rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.mobile-accordion-body a:hover { color: var(--accent); border-left-color: var(--accent); }
+
+.nav-cta-mobile {
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+}
 
 /* ─── BUTTONS ────────────────────────────────────── */
 .btn-primary {
@@ -443,6 +624,7 @@ footer {
 /* ─── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
   footer { flex-direction: column; }
   .footer-top { flex-direction: column; }
   .footer-bottom { flex-direction: column; text-align: center; }
