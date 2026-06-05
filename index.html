@@ -185,8 +185,16 @@
 
     .trust-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .trust-grid { grid-template-columns: 1fr; }
     }
 
     .trust-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; position: relative; overflow: hidden; }
@@ -203,8 +211,12 @@
     /* ─── SERVICES ───────────────────────────────────── */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .services-grid { grid-template-columns: 1fr; }
     }
 
     .service-card {
@@ -266,8 +278,12 @@
 
     .approach-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
+    }
+
+    @media (max-width: 680px) {
+      .approach-grid { grid-template-columns: 1fr; }
     }
 
     .approach-card {
@@ -275,6 +291,12 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 2rem;
+      transition: border-color var(--transition-mid), box-shadow var(--transition-mid);
+    }
+
+    .approach-card:hover {
+      border-color: rgba(0,200,255,0.18);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     }
 
     .approach-step {
@@ -338,10 +360,28 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 2rem 1.6rem;
-      transition: border-color 0.3s;
+      transition: border-color var(--transition-mid), transform var(--transition-mid), box-shadow var(--transition-mid);
+      position: relative;
+      overflow: hidden;
     }
 
-    .pricing-card:hover { border-color: rgba(0,200,255,0.25); }
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: opacity var(--transition-mid);
+    }
+
+    .pricing-card:hover {
+      border-color: rgba(0,200,255,0.22);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+    }
+
+    .pricing-card:hover::before { opacity: 1; }
 
     .pricing-label { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; font-family: 'Noto Sans JP', sans-serif; }
     .pricing-price {
@@ -393,10 +433,16 @@
 
     .cta-divider { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
 
+    /* ─── CTA section responsive ────────────────── */
     @media (max-width: 768px) {
-      .value-item { border-right: none; border-bottom: 1px solid var(--border); }
-      .value-item:last-child { border-bottom: none; }
+      .cta-section { padding: 5rem 5%; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
       .process-step::after { display: none; }
+      .process-step { padding: 1.5rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .process-steps { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -412,6 +458,7 @@
     <li><a href="/about/">事業者情報</a></li>
     <li><a href="/contact/" class="nav-cta">無料相談</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
