@@ -57,23 +57,10 @@
       padding: 120px 5% 80px;
       position: relative;
       overflow: hidden;
-      background-image: url('/images/SUPERAI.jpeg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
     }
 
     .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(4, 8, 20, 0.30) 0%,
-        rgba(4, 8, 20, 0.20) 50%,
-        rgba(4, 8, 20, 0.40) 100%
-      );
-      z-index: 0;
+      display: none;
     }
 
     .hero > * {
@@ -135,8 +122,8 @@
       letter-spacing: -0.02em;
       margin-bottom: 2rem;
       position: relative;
-      color: #ffffff;
-      text-shadow: 0 2px 24px rgba(0,0,0,0.6);
+      color: var(--text);
+      text-shadow: none;
     }
 
     .hero-title .brand {
@@ -150,12 +137,12 @@
     .hero-desc {
       max-width: 500px;
       font-size: 1rem;
-      color: rgba(255,255,255,0.78);
+      color: var(--muted);
       line-height: 2;
       margin-bottom: 3rem;
       font-family: 'Noto Sans JP', sans-serif;
       position: relative;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+      text-shadow: none;
     }
 
     .hero-cta-group {
