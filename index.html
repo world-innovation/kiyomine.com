@@ -67,7 +67,12 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(5, 10, 25, 0.55);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 8, 20, 0.72) 0%,
+        rgba(4, 8, 20, 0.60) 50%,
+        rgba(4, 8, 20, 0.80) 100%
+      );
       z-index: 0;
     }
 
@@ -102,8 +107,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(30,111,196,0.06);
-      border: 1px solid rgba(30,111,196,0.18);
+      background: rgba(30,111,196,0.15);
+      border: 1px solid rgba(30,111,196,0.40);
       border-radius: 999px;
       padding: 0.3rem 1rem;
       font-size: 0.72rem;
@@ -113,7 +118,7 @@
       text-transform: uppercase;
       margin-bottom: 2.5rem;
       position: relative;
-      opacity: 0.9;
+      backdrop-filter: blur(6px);
     }
 
     .badge-dot {
@@ -130,6 +135,8 @@
       letter-spacing: -0.02em;
       margin-bottom: 2rem;
       position: relative;
+      color: #ffffff;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.6);
     }
 
     .hero-title .brand {
@@ -137,16 +144,18 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      filter: drop-shadow(0 0 18px rgba(30,111,196,0.5));
     }
 
     .hero-desc {
       max-width: 500px;
       font-size: 1rem;
-      color: var(--muted);
+      color: rgba(255,255,255,0.78);
       line-height: 2;
       margin-bottom: 3rem;
       font-family: 'Noto Sans JP', sans-serif;
       position: relative;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
     }
 
     .hero-cta-group {
